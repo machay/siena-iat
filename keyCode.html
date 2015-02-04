@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("body").keypress(function(e){
+    
+    		e.preventDefault();
+    		keyCode = e.keyCode;
+    		keyChar =  String.fromCharCode(e.keyCode);
+    
+    		output += "keyCode = " + keyCode + "<br>";
+    		output += "keyChar = " + keyChar + "<br>";
+    		
+        $("#console").html(output);    
+    });
+});
+</script>
+</head>
+<body>
+
+<p id="console"></p>
+
+</body>
+</html>
