@@ -4,17 +4,21 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
+    var start = 0;
     $("body").keypress(function(e){
         var date = new Date();
-        var milliseconds = date.getTime();
+        var seconds = date.getTime()/1000;
         
+        var diff = seconds - start;
+        start = seconds
+          
     		e.preventDefault();
     		var keyCode = e.keyCode;
     		var keyChar =  String.fromCharCode(e.keyCode);
     
     		var output = "keyCode = " + keyCode + "<br>";
     		output += "keyChar = " + keyChar + "<br>";
-    		output += "time = " + milliseconds + "<br>";
+    		output += "time = " + seconds + "<br>";
     		
         $("#console").html(output);    
     });
