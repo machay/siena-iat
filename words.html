@@ -17,24 +17,23 @@ $(document).keyup(function(e){
 		var choose = Math.random();
 		c = choose;
 		var random = Math.floor((Math.random() * 12) + 1); 
+		if(choose >= 0.5){ //positive
+			$("#console").html(positive[random]);
+		}else if(choose < 0.5){ //negative
+			$("#console").html(negative[random]);
+		}
+	}else if(e.which == 69 || e.which == 73){
+		if(((e.which == 69) && (c >= 0.5)) || ((e.which == 73) && (c < 0.5))){
+			var choose = Math.random();
+			c = choose;
+			var random = Math.floor((Math.random() * 12) + 1); 
 			if(choose >= 0.5){ //positive
 				$("#console").html(positive[random]);
-			}else if(choose < 0.5){ //negative
+			}else{ //negative
 				$("#console").html(negative[random]);
 			}
-	}else if(e.which == 69 || e.which == 73){
-			if(((e.which == 69) && (c >= 0.5)) || ((e.which == 73) && (c < 0.5))){
-				var choose = Math.random();
-				c = choose;
-				var random = Math.floor((Math.random() * 12) + 1); 
-				
-				if(choose >= 0.5){ //positive
-					$("#console").html(positive[random]);
-				}else{ //negative
-					$("#console").html(negative[random]);
-				}
-			}
 		}
+	}
 });
 </script>
 </head>
