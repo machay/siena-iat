@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    var start = 0;
+    $("body").keypress(function(e){
+        e.preventDefault();
+        var date = new Date();
+        var seconds = date.getTime()/1000;
+        var diff = seconds - start;
+        start = seconds
+        var output = "diff = " + diff + "<br>";
+    		
+        $("#console").html(output);    
+    });
+});
+</script>
+</head>
+<body>
+
+<p id="console"></p>
+
+</body>
+</html>
