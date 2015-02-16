@@ -7,10 +7,10 @@ $(document).ready(function(){
     $("body").keypress(function(e){
     
     		e.preventDefault();
-    		keyCode = e.keyCode;
-    		keyChar =  String.fromCharCode(e.keyCode);
+    		var keyCode = e.keyCode;
+    		var keyChar =  String.fromCharCode(e.keyCode);
     
-    		output += "keyCode = " + keyCode + "<br>";
+    		var output = "keyCode = " + keyCode + "<br>";
     		output += "keyChar = " + keyChar + "<br>";
     		
         $("#console").html(output);    
