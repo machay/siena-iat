@@ -5,35 +5,37 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
 <script>
-var negative = ["Pessimistic", "Anarchy", "Agony", "Failure", "Weak", "Stupid", "Evil", "Jealous", "Enemies", "Suffering", "Misery", "Torture"];
-var positive = ["Intellectual", "Laughter", "Approval", "Confidence", "Perfect", "Allowed", "Innocent", "Sensual", "Smiling", "Love", "Friendship", "Optimism"];
+$(document).ready(function(){
+	var negative = ["Pessimistic", "Anarchy", "Agony", "Failure", "Weak", "Stupid", "Evil", "Jealous", "Enemies", "Suffering", "Misery", "Torture"];
+	var positive = ["Intellectual", "Laughter", "Approval", "Confidence", "Perfect", "Allowed", "Innocent", "Sensual", "Smiling", "Love", "Friendship", "Optimism"];
 
-var c = "";
+	var c = "";
 
-$(document).keyup(function(e){
-	//alert(e.keyCode); //69 = e, 73 = i, 32 = space
-	//$("#console").html(String.fromCharCode(e.keyCode));
-	if(e.which == 32){
-		var choose = Math.random();
-		c = choose;
-		var random = Math.floor((Math.random() * 12) + 1); 
-		if(choose >= 0.5){ //positive
-			$("#console").html(positive[random]);
-		}else if(choose < 0.5){ //negative
-			$("#console").html(negative[random]);
-		}
-	}else if(e.which == 69 || e.which == 73){
-		if(((e.which == 69) && (c >= 0.5)) || ((e.which == 73) && (c < 0.5))){
+	$(document).keyup(function(e){
+		//alert(e.keyCode); //69 = e, 73 = i, 32 = space
+		//$("#console").html(String.fromCharCode(e.keyCode));
+		if(e.which == 32){
 			var choose = Math.random();
 			c = choose;
 			var random = Math.floor((Math.random() * 12) + 1); 
 			if(choose >= 0.5){ //positive
 				$("#console").html(positive[random]);
-			}else{ //negative
+			}else if(choose < 0.5){ //negative
 				$("#console").html(negative[random]);
 			}
+		}else if(e.which == 69 || e.which == 73){
+			if(((e.which == 69) && (c >= 0.5)) || ((e.which == 73) && (c < 0.5))){
+				var choose = Math.random();
+				c = choose;
+				var random = Math.floor((Math.random() * 12) + 1); 
+				if(choose >= 0.5){ //positive
+					$("#console").html(positive[random]);
+				}else{ //negative
+					$("#console").html(negative[random]);
+				}
+			}
 		}
-	}
+	});
 });
 </script>
 </head>
