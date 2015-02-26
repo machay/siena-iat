@@ -11,11 +11,12 @@ $(document).ready(function(){
 
 	var c = "";
 	var count = 0;
+	var start = 0;
 
 	$(document).keyup(function(e){
 		//alert(e.keyCode); //69 = e, 73 = i, 32 = space
 		//$("#console").html(String.fromCharCode(e.keyCode));
-		while(count < 6){
+		if(count <= 20){
 		if(e.which == 32 && c == ""){
 			var choose = Math.random();
 			c = choose;
@@ -35,23 +36,40 @@ $(document).ready(function(){
 				var random = Math.floor((Math.random() * 12) + 1); 
 				if(choose >= 0.5){ //positive
 					$("#console").html(positive[random]);
+					e.preventDefault();
+        			var date = new Date();
+       	 			var seconds = date.getTime()/1000;
+        			var diff = seconds - start;
+        			start = seconds
+        			var output = "diff = " + diff + "<br>";
+        			$("#console2").html(output);    
 					count++;
 				}else{ //negative
 					$("#console").html(negative[random]);
+					e.preventDefault();
+        			var date = new Date();
+        			var seconds = date.getTime()/1000;
+        			var diff = seconds - start;
+        			start = seconds
+        			var output = "diff = " + diff + "<br>";
+        			$("#console2").html(output);    
 					count++;
 				}
 			}
 		}
 		}
-		if(count >= 6){
-		alert("done");
+		if(count == 21){
+		alert("done!");
+		return;
 		}
 	});
+	
 });
 </script>
 </head>
 <body>
 <p>24 Words will be shown. Press 'e' if the word is positive, 'i' if the word is negative. Press 'spacebar' to begin.</p>
 <p id="console"></p>
+<p id="console2"></p>
 </body>
 </html>
