@@ -10,18 +10,23 @@ $(document).ready(function(){
 	var positive = ["Intellectual", "Laughter", "Approval", "Confidence", "Perfect", "Allowed", "Innocent", "Sensual", "Smiling", "Love", "Friendship", "Optimism"];
 
 	var c = "";
+	var count = 0;
 
 	$(document).keyup(function(e){
 		//alert(e.keyCode); //69 = e, 73 = i, 32 = space
 		//$("#console").html(String.fromCharCode(e.keyCode));
+		while(count < 6){
 		if(e.which == 32 && c == ""){
 			var choose = Math.random();
 			c = choose;
+			count++;
 			var random = Math.floor((Math.random() * 12) + 1); 
 			if(choose >= 0.5){ //positive
 				$("#console").html(positive[random]);
+				count++;
 			}else if(choose < 0.5){ //negative
 				$("#console").html(negative[random]);
+				count++;
 			}
 		}else if(e.which == 69 || e.which == 73){
 			if(((e.which == 69) && (c >= 0.5)) || ((e.which == 73) && (c < 0.5))){
@@ -30,10 +35,16 @@ $(document).ready(function(){
 				var random = Math.floor((Math.random() * 12) + 1); 
 				if(choose >= 0.5){ //positive
 					$("#console").html(positive[random]);
+					count++;
 				}else{ //negative
 					$("#console").html(negative[random]);
+					count++;
 				}
 			}
+		}
+		}
+		if(count >= 6){
+		alert("done");
 		}
 	});
 });
