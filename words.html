@@ -9,31 +9,80 @@ $(document).ready(function(){
 	var negative = ["Pessimistic", "Anarchy", "Agony", "Failure", "Weak", "Stupid", "Evil", "Jealous", "Enemies", "Suffering", "Misery", "Torture"];
 	var positive = ["Intellectual", "Laughter", "Approval", "Confidence", "Perfect", "Allowed", "Innocent", "Sensual", "Smiling", "Love", "Friendship", "Optimism"];
 
-	var c = "";
-
+	var c = "?"; //chooses randomly neg or pos words
+	
+	var numBlocks = 2; //the number of blocks there are
+	var numTrials = 20; //current/starting trials
+	var curBlock = 1; //current block on; always start with 1
+	var curTrial = 1; //curent trial on; always start with 1
+	
+	/*Issues?:
+		- same word twice in a row
+	*/
+	
+	/*Next Step:
+	 	- Items change for e & i for all blocks (need more then neg/pos words first)
+	 */
+	
 	$(document).keyup(function(e){
-		//alert(e.keyCode); //69 = e, 73 = i, 32 = space
-		//$("#console").html(String.fromCharCode(e.keyCode));
-		if(e.which == 32 && c == ""){
-			var choose = Math.random();
-			c = choose;
-			var random = Math.floor((Math.random() * 12) + 1); 
-			if(choose >= 0.5){ //positive
-				$("#console").html(positive[random]);
-			}else if(choose < 0.5){ //negative
-				$("#console").html(negative[random]);
-			}
-		}else if(e.which == 69 || e.which == 73){
-			if(((e.which == 69) && (c >= 0.5)) || ((e.which == 73) && (c < 0.5))){
-				var choose = Math.random();
-				c = choose;
-				var random = Math.floor((Math.random() * 12) + 1); 
-				if(choose >= 0.5){ //positive
-					$("#console").html(positive[random]);
-				}else{ //negative
-					$("#console").html(negative[random]);
+		if(curBlock <= numBlocks){
+			if(curTrial <= numTrials){
+				//alert(e.keyCode); //69 = e, 73 = i, 32 = space
+				//$("#console").html(String.fromCharCode(e.keyCode));
+				if(e.which == 32 && c == "?"){
+					var choose = Math.random();
+					c = choose;
+					var random = Math.floor((Math.random() * 12)); //choosing which word
+					if(choose >= 0.5){ //positive
+						$("#console").html(positive[random]);
+						
+						//when items change, in these segments of code, this would change
+						//simply change array call depending on which block
+					}else if(choose < 0.5){ //negative
+						$("#console").html(negative[random]);
+					}
+							
+					curTrial++;
+				}else if(e.which == 69 || e.which == 73){
+					if(((e.which == 69) && (c >= 0.5)) || ((e.which == 73) && (c < 0.5))){
+						var choose = Math.random();
+						c = choose;
+						var random = Math.floor((Math.random() * 12)); //choosing which word
+						if(choose >= 0.5){ //positive
+							$("#console").html(positive[random]/* + " " + curTrial*/);
+						}else{ //negative
+							$("#console").html(negative[random]/* + " " + curTrial*/);
+						}
+								
+						curTrial++;
+					}
 				}
+			}else{
+						
+				//rest stage between blocks
+						
+				curTrial = 1;
+				curBlock++;
+						
+				if(curBlock == 4 || curBlock == 7){
+					numTrials = 40;
+				}else if(curBlock == 6){
+					numTrials = 20;
+				}
+						
+				c = "?"; //only starts next block by pressing space
+				
+				/*Issue?:
+				 * Comes into rest stage once finished
+				 */
+						
+				$("#console").html("REST STAGE! curBlock: " + curBlock + " and curTrial: " + curTrial);
 			}
+		}else{
+					
+			//Only here once finished
+					
+			$("#console").html("FINISHED! numBlocks: " + numBlocks);
 		}
 	});
 });
