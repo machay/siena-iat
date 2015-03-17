@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Implicit Association Test Example</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script>
+var negative = ["Pessimistic", "Anarchy", "Agony", "Failure", "Weak", "Stupid", "Evil", "Jealous", "Enemies", "Suffering", "Misery", "Torture"];
+var positive = ["Intellectual", "Laughter", "Approval", "Confidence", "Perfect", "Allowed", "Innocent", "Sensual", "Smiling", "Love", "Friendship", "Optimism"];
+
+var c = "";
+var start = 0;
+var limit = 0;
+$(document).keyup(function(e){
+if(limit < 10){
+	if(e.which == 32){ //If spacebar pressed to start
+		var choose = Math.random();
+		c = choose;
+		var random = Math.floor((Math.random() * 12) + 1); 
+		e.preventDefault();
+		if(choose >= 0.5){ //if random number >= 0.5, display positive word
+			var date = new Date();
+        	var seconds = date.getTime()/1000;
+       	 	var diff = seconds - start;
+        	start = seconds
+			$("#console").html(positive[random]);
+			limit++;
+		}else if(choose < 0.5){ //if random number < -.5, display negative word
+			$("#console").html(negative[random]);	
+			limit++;
+				}
+	}
+	
+	else if(e.which == 69 || e.which == 73){ //Else if e or i key is pressed
+		if(((e.which == 69) && (c >= 0.5)) || ((e.which == 73) && (c < 0.5))){//If word is positive and e key pressed, or word negative and i key pressed
+		var date = new Date();
+        var seconds = date.getTime()/1000;
+        var diff = seconds - start;
+        start = seconds
+			var choose = Math.random();
+			c = choose;
+			var random = Math.floor((Math.random() * 12) + 1); 
+			if(choose >= 0.5){ //positive
+				$("#console").html(positive[random]);
+				$("#timer").html(diff);
+				limit++;
+			}else{ //negative
+				$("#console").html(negative[random]);
+				$("#timer").html(diff);
+				limit++;
+			}
+		}
+	}
+	}
+	else if(limit >=10) {
+		alert("DONE!");
+	}
+});
+</script>
+</head>
+<body>
+<p>24 Words will be shown. Press 'e' if the word is positive, 'i' if the word is negative. Press 'spacebar' to begin.</p>
+<p id="console"></p>
+<p id="timer"></p>
+</body>
+
+</html>
