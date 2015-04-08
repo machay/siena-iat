@@ -10,6 +10,7 @@ $(document).ready(function(){
 	var positive = ["Intellectual", "Laughter", "Approval", "Confidence", "Perfect", "Allowed", "Innocent", "Sensual", "Smiling", "Love", "Friendship", "Optimism"];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	var c = "";
 	var count = 0;
 	var start = 0;
@@ -72,6 +73,24 @@ $(document).ready(function(){
 	 */
 	
 	$(document).keyup(function(e){
+=======
+	var c = "?"; //chooses randomly neg or pos words
+	
+	var numBlocks = 2; //the number of blocks there are
+	var numTrials = 20; //current/starting trials
+	var curBlock = 1; //current block on; always start with 1
+	var curTrial = 1; //curent trial on; always start with 1
+	
+	/*Issues?:
+		- same word twice in a row
+	*/
+	
+	/*Next Step:
+	 	- Items change for e & i for all blocks (need more then neg/pos words first)
+	 */
+	
+	$(document).keyup(function(e){
+>>>>>>> FETCH_HEAD
 		if(curBlock <= numBlocks){
 			if(curTrial <= numTrials){
 				//alert(e.keyCode); //69 = e, 73 = i, 32 = space
@@ -115,6 +134,9 @@ $(document).ready(function(){
 					numTrials = 40;
 				}else if(curBlock == 6){
 					numTrials = 20;
+<<<<<<< HEAD
+>>>>>>> FETCH_HEAD
+=======
 >>>>>>> FETCH_HEAD
 				}
 						
@@ -131,11 +153,14 @@ $(document).ready(function(){
 			//Only here once finished
 					
 			$("#console").html("FINISHED! numBlocks: " + numBlocks);
+<<<<<<< HEAD
 		}
 		}
 		if(count == 21){
 		alert("done!");
 		return;
+=======
+>>>>>>> FETCH_HEAD
 		}
 	});
 	
