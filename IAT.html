@@ -35,6 +35,8 @@
 				if(curBlock == 1){
 					$("#directions").html("20 Words will be shown. Press 'e' if the word is " +	//Changes directions for block 2
 					 	"positive, 'i' if the word is negative. Press 'spacebar' to begin.");
+					 $("#left").html("Positive (e)");
+					 $("#right").html("Negative (i)");
 					 if(e.which == 32 && c == "?"){												//If spacebar pressed
 					 	var date = new Date();
         				var seconds = date.getTime()/1000;												//Timer initialization
@@ -85,6 +87,8 @@
 				else if(curBlock == 2){
 					$("#directions").html("20 Words will be shown. Press 'e' if the word is " +	//Changes directions for block 2
 					 "computer science, 'i' if the word is nursing. Press 'spacebar' to begin.");
+					 $("#left").html("Computer Science (e)");
+					 $("#right").html("Nursing (i)");
 					 
 					 if(e.which == 32 && c == "?"){												//If spacebar pressed
 					 	var date = new Date();
@@ -138,11 +142,15 @@
 						$("#directions").html("20 Words will be shown. Press 'e' if the word is " +	//Changes directions for block 3
 					 	"positive or computer science, 'i' if the word is negative or nursing. Press" +
 					  	" 'spacebar' to begin.");
+					  	$("#left").html("Positive or Computer Science (e)");
+					 	$("#right").html("Negative or Nursing (i)");
 					}
 					else if(curBlock == 4){
 						$("#directions").html("40 Words will be shown. Press 'e' if the word is "+	//Changes directions for block 4
 					 	"positive or computer science, 'i' if the word is negative or nursing. "+
 					 	"Press 'spacebar' to begin.");
+					 	$("#left").html("Positive or Computer Science (e)");
+					 	$("#right").html("Negative or Nursing (i)");
 					}
 					if(e.which == 32 && c == "?"){												//If spacebar pressed
 					 	var date = new Date();
@@ -229,6 +237,8 @@
 				else if(curBlock == 5){
 					$("#directions").html("20 Words will be shown. Press 'e' if the word is "+	//Changes directions for block 5
 					"negative, 'i' if the word is positive. Press 'spacebar' to begin.");
+					$("#left").html("Negative (e)");
+					 $("#right").html("Positive (i)");
 					if(e.which == 32 && c == "?"){												//If spacebar pressed
 					 	var date = new Date();
         				var seconds = date.getTime()/1000;												//Timer initialization
@@ -281,11 +291,15 @@
 						$("#directions").html("20 Words will be shown. Press 'e' if the word is "+	//Changes directions for block 6
 						"negative or computer science, 'i' if the word is positive or nursing. Press "+	
 						"'spacebar' to begin.");
+						$("#left").html("Negative or Computer Science (e)");
+					 	$("#right").html("Positive or Nursing (i)");
 					}
 					else if(curBlock == 7){
 						$("#directions").html("40 Words will be shown. Press 'e' if the word is"+	//Changes directions for block 7
 						" negative or computer science, 'i' if the word is positive or nursing. "+
 						"Press 'spacebar' to begin.");
+						$("#left").html("Negative or Computer Science (e)");
+					 	$("#right").html("Positive or Nursing (i)");
 						numTrials = 40;
 					}
 					if(e.which == 32 && c == "?"){												//If spacebar pressed
@@ -379,6 +393,10 @@
 	   			curTrial = 1;
 	   			curBlock++;
 	   			c = "?";
+	   			$("#directions").html("Rest stage");
+	   			$("#left").html("");
+	   			$("#right").html("");
+	   			$("#console").html("");
 	   			if(curBlock == 4 || curBlock == 7){
 					numTrials = 40;
 				}
@@ -403,7 +421,16 @@
 
 </head>
 <body>
-	<p id="directions"></p>
+	<p id="directions">20 Words will be shown. Press 'e' if the word is " +	
+					 	"positive, 'i' if the word is negative. Press 'spacebar' to begin.</p>
+	
+	<table id="associate">
+	<tr>
+		<td id="left"></td>
+		<td id="right"></td>
+	</tr>
+	</table>
+	
 	<p id="console"></p>
 	<p id="timer"></p>
 	<p id="trial"></p>
