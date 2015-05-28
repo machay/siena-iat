@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Implicit Association Test Survey</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<p id="title">Survey</p>
+	<form id="survey" action="#" method="POST">
+		Age: <input type"number" name="age" required> <br>
+		Gender:
+			<input type="radio" name="sex" value="male" required>Male
+			<input type="radio" name="sex" value="female" required>Female<br>
+		Major: <input type"text" name="major" required><br>
+		What is your knowledge of Computer Science? (1 being the lowest, 5 being basic knowledge, and 10 being the highest)<br> 
+			<input class ="number" type="radio" name="cs" value="1" required>1
+			<input class="number" type="radio" name="cs" value="2" required>2
+			<input type="radio" name="cs" value="3" required>3
+			<input type="radio" name="cs" value="4" required>4
+			<input type="radio" name="cs" value="5" required>5
+			<input type="radio" name="cs" value="6" required>6
+			<input type="radio" name="cs" value="7" required>7
+			<input type="radio" name="cs" value="8" required>8
+			<input type="radio" name="cs" value="9" required>9
+			<input type="radio" name="cs" value="10" required>10
+		<!--button type = "submit" class = 'btn'><a>Complete</a></button-->
+	</form>
+	<input type="button" value="Continue to IAT" onclick="window.location.href='iat.html'" id="cont">
+</body>
+</html>

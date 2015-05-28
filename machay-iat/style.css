@@ -1,0 +1,25 @@
+body{
+	font-family: Arial;
+	font-size: 14px;
+}
+
+#title{
+	font-size: 20px;
+	padding: 2% 5% 0 5%
+}
+
+#directions{
+	padding: 2% 5% 2% 5%;
+}
+
+#survey{
+	padding: 0 5% 2% 5%;
+}
+
+#cont{
+	margin-left: 50%;
+}
+
+.number{
+	padding-right: 4%;
+}
