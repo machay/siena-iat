@@ -20,12 +20,16 @@ body{
 	margin-left: 50%;
 }
 
-ul{
-	padding-left: 0;
+.radio li{
+	display: inline-block;
+	line-height: 10px;
 }
 
 #knowledge li{
 	list-style: none;
 	display: inline-block;
-	padding-right: 2%;
+}
+
+ul{
+	padding-left: 0px;
 }

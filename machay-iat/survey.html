@@ -6,7 +6,7 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Implicit Association Test Survey</title>
 		<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!--link href="css/bootstrap.min.css" rel="stylesheet"-->
 </head>
 <body>
 	<p id="title">Survey</p>
@@ -16,7 +16,7 @@
 			<input type="radio" name="sex" value="male" required>Male
 			<input type="radio" name="sex" value="female" required>Female<br>
 		<ul class="radio"> What is your knowledge of Computer Science? (1 being the lowest, 5 being basic knowledge, and 10 being the highest)<br>
-			<li><input type="radio" name="cs" value="1" required>1</li>  
+			<li><input type="radio" name="cs" value="1" required>1</li>    
 			<li><input type="radio" name="cs" value="2" required>2</li>  
 			<li><input type="radio" name="cs" value="3" required>3</li>  
 			<li><input type="radio" name="cs" value="4" required>4</li>
@@ -26,19 +26,17 @@
 			<li><input type="radio" name="cs" value="8" required>8</li>  
 			<li><input type="radio" name="cs" value="9" required>9</li>    
 			<li><input type="radio" name="cs" value="10" required>10</li>  
-		</ul>  
-		<ul class="radio"> Please specify your ethnicity <br>
-			<li><input type="radio" name="et" value="w" required>White</li>
-			<li><input type="radio" name="et" value="hl" required>Hispanic or Latino</li>
-			<li><input type="radio" name="et" value="ba" required>Black or African American</li>
-			<li><input type="radio" name="et" value="na" required>Native American or American Indian</li>
-			<li><input type="radio" name="et" value="ap" required>Asian/Pacific Islander</li>
-			<li><input type="radio" name="et" value="o" required>Other</li>
-			<li><input type="radio" name="et" value="p" required>Prefer Not To Answer</li>
 		</ul>
-		Major: <input type"text" name="major" required><br>
-		<!--If else statement: if some college education was achieved, show Major field-->
-		<!--button type = "submit" class = 'btn'><a>Complete</a></button-->
+		Ethnicity:
+		<select name="eth">
+			<option value="">Pleace specify your ethnicity...</option>
+			<option value="w">White</option>
+			<option value="hl">Hispanic or Latino</option>
+			<option value="ba">Black or African American</option>
+			<option value="na">Native American or American Indian</option>
+			<option value="o">Other</option>
+			<option value="p">Prefer not to Answer</option>
+		</select><br>
 		Residence: 
 		<select name="country">
 			<option value="">Country...</option>
@@ -289,7 +287,10 @@
 			<option value="ZR">Zaire</option>
 			<option value="ZM">Zambia</option>
 			<option value="ZW">Zimbabwe</option>
-		</select>
+		</select><br>
+		Major: <input type"text" name="major" required><br>
+		<!--If else statement: if some college education was achieved, show Major field-->
+		<!--button type = "submit" class = 'btn'><a>Complete</a></button-->
 	</form>
 	<input type="button" value="Continue to IAT" onclick="window.location.href='iat.html'" id="cont">
 </body>
