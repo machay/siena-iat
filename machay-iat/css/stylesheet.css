@@ -20,6 +20,12 @@ body{
 	margin-left: 50%;
 }
 
-.number{
-	padding-right: 4%;
+ul{
+	padding-left: 0;
+}
+
+#knowledge li{
+	list-style: none;
+	display: inline-block;
+	padding-right: 2%;
 }
